@@ -29,6 +29,8 @@ The tool lives at the repo root rather than inside a skill: it reads `docs/`, wh
 
 It runs through `uv` on its own, with no install step. `--help` has the rest; `--layout` is the mode for the wide Science outcome tables, whose columns markitdown interleaves.
 
+`tools/parse_chinese_characters.py` is the other piece of authoring equipment there, reading `docs/` the same way: it regenerates the Chinese character data and checks it. See **Character data has invariants**.
+
 Plausible-sounding syllabus content is the failure mode here, because MOE syllabuses are close enough to other countries' that invented detail reads as correct. A parent setting a paper from a fabricated boundary has no way to catch it. When `docs/syllabus/` is silent on something a user needs, say it is not in the source rather than filling the gap.
 
 Nothing outside `docs/syllabus/` may be cited as syllabus. Two references carry classroom practice instead, each distilled from a non-MOE PDF kept locally in `docs/references/`: `references/math-problem-sums.md`, the named concepts behind Singapore problem sums, and `references/science-answering-techniques.md` with the topic files it routes to in `references/science-answering/`, the frames an open-ended Science answer is marked against. Both are labelled classroom practice throughout, and `references/math.md` and `references/science.md` remain the authority on what a level covers. Where such a file's phrasing crosses a "not required" boundary — *elastic potential energy* and *stomata* are both excluded — the file says so explicitly rather than carrying the term unmarked.
@@ -51,13 +53,18 @@ A **boundary** is a syllabus statement that an idea is *not required* at a level
 
 ## Character data has invariants
 
-`references/chinese-characters.json` was parsed from the two 《欢乐伙伴》 character-list PDFs by x-coordinate, because the gap between the 识读字 and 识写字 columns collapses to a single space whenever the read column is full — whitespace splitting silently produces wrong but plausible data. Any reparse holds these three, all of which failed under earlier wrong column boundaries:
+`references/chinese-characters.json` holds the two 《欢乐伙伴》 character lists as course → semester → **lesson** → {识读字, 识写字}; a semester is the concatenation of its lessons, with no aggregate string, so the lessons are the single source of truth. `tools/parse_chinese_characters.py` regenerates it from the PDFs and runs the checks below, refusing to write when one fails.
+
+The parse is **geometric, from the table's own ruling lines** (`page.get_drawings()` for the column and row boundaries, each glyph placed in a cell by its bbox), because the gap between the 识读字 and 识写字 columns collapses to a single space whenever the read column is full — whitespace splitting silently produces wrong but plausible data. The rules **shift from page to page** (the 华文 read|write rule is 382.6 on pages 1-4 and 389.7 from page 5 on), so read them per page: a hardcoded column boundary corrupts the later grades, which is the bug this data already suffered once.
+
+Any reparse holds these four, the first three of which failed under earlier wrong column boundaries:
 
 - Every character in a write list appears in some read list, with zero exceptions, in both courses.
 - End-of-P6 totals land inside the syllabus's stated bands: 华文 1655 read / 1076 written, 高级华文 1815 / 1425.
 - 华文 and 高级华文 read lists are set-identical through 四下 (1219 characters) and diverge from 五上.
+- **Reconstitution**: a semester's lessons concatenated in document order byte-match the known-good per-semester data — `parse_chinese_characters.py --baseline <old.json> --check`, over all 48 lists. This is what proves a restructure lossless. It is also **blind to lesson boundaries**: characters shifted between two adjacent lessons still concatenate identically, so where a lesson starts and ends needs its own check against the source.
 
-Check all three before trusting a reparse, and update the tables in `references/chinese.md` and `README.md` together with the JSON — the counts appear in all three.
+Check all four before trusting a reparse, and update the tables in `references/chinese.md` and `README.md` together with the JSON — the counts and the lesson structure appear in all three.
 
 The per-grade spans on the Chapter 4 objectives were recovered the same way, from tables rotated 90° on the page: the shading is a vector fill path per course colour (green 华文, orange 高级华文, pink 基础华文) whose sub-rectangles are the shaded cells, mapped to the 一…六 header glyph centres. Any reparse of those spans holds two checks, both of which the current data passes: an independent pixel sample of the page rendered at 3× agrees row for row, and 自评和互评 comes out as CL 5-6 · HCL 4-6, which is what the syllabus's own prose states.
 

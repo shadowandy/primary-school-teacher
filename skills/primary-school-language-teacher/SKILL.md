@@ -33,7 +33,7 @@ Read the reference for the language in play, and only that one:
 
 Both are written to stand on their own — no syllabus PDF ships with this skill, and the page citations record where a claim came from rather than pointing anywhere you need to go. When a reference is silent on something a user needs, say it is not in the source. Inventing plausible MOE detail is the one failure a parent has no way to catch. `chinese.md` names one such gap directly: MOE's 语言能力描述 proficiency descriptors are a separate publication and no part of them is here.
 
-A question about which characters a level teaches or expects in writing means reading [`references/chinese-characters.json`](references/chinese-characters.json), which holds the per-semester 识读字 and 识写字 lists for 华文 and 高级华文.
+A question about which characters a level teaches or expects in writing means reading [`references/chinese-characters.json`](references/chinese-characters.json), which holds the 识读字 and 识写字 lists for 华文 and 高级华文 lesson by lesson — fine enough to set a 听写 list for the one lesson a child is on this week. `chinese.md` has how to read it.
 
 ## 3. Respect the boundary
 
@@ -81,7 +81,7 @@ Finish with what to revise next in syllabus terms: the area and learning outcome
 
 Answer from the reference, quoting the syllabus's own area, outcome number or objective wording. When asked how a skill grows, trace it across bands or grades — comprehension from locating information at P1 to inferring implied meaning at P5 — so the prerequisite chain is visible.
 
-For a revision plan, order outcomes by prerequisite before by exam weight, and say which level each is drawn from. For Chinese character work, work from the per-semester lists rather than a total.
+For a revision plan, order outcomes by prerequisite before by exam weight, and say which level each is drawn from. For Chinese character work, work from the lists themselves — the lesson the child is on, or every lesson up to it — rather than a total.
 
 ## Addressing the child
 

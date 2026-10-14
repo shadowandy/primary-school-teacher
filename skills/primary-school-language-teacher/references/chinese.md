@@ -245,20 +245,30 @@ Three things to read from this table:
 
 ## The character data file
 
-[`chinese-characters.json`](chinese-characters.json) holds the actual characters, per semester, per course:
+[`chinese-characters.json`](chinese-characters.json) holds the actual characters, per course, per semester, **per lesson**:
 
 ```
-{ "华文": { "一上": { "识读字": "衣一五雨我牙鱼...", "识写字": "一五木八大..." }, ... },
+{ "华文": { "一上": { "第一课": { "识读字": "衣一五雨我牙鱼", "识写字": "一五" },
+                     "第二课": { "识读字": "...", "识写字": "..." }, ... }, ... },
   "高级华文": { ... } }
 ```
 
+The lessons are the whole of the data: a semester's list is the **concatenation of its lessons in document order**, and there is no semester-level string to read instead. Concatenated that way, the lessons reproduce character for character the per-semester lists the cumulative table above was counted from. 华文 has 96 lessons, 高级华文 100.
+
+**Key on (semester, lesson), never on a lesson label alone.** Lesson numbering restarts each *year*, not each semester, so `第一课` appears in 一上, 二上, 三上, 四上, 五上 and 六上 of both courses — six different sets of characters under one label. The spans, 上 then 下:
+
+| Course | Lesson numbers by year |
+|---|---|
+| 华文 | P1 1-10 / 11-19 · P2 1-10 / 11-19 · P3 1-9 / 10-17 · P4 1-9 / 10-16 · P5 1-8 / 9-15 · P6 1-6 / 7-10 |
+| 高级华文 | as 华文 through 四下, then P5 1-9 / 10-17 · P6 1-7 / 8-12 |
+
 Use it to:
 
-- **Check a character is in-syllabus** before putting it in a worksheet, and at which level it is first *read* versus first *written*.
-- **Write 听写 (dictation) and 默写 lists** that draw only on 识写字 up to the child's semester.
-- **Pitch reading passages** — compose from the cumulative 识读字 set up to the child's level, so an unknown character is a deliberate choice rather than an accident.
+- **Check a character is in-syllabus** before putting it in a worksheet, and at which level and lesson it is first *read* versus first *written*.
+- **Write 听写 (dictation) and 默写 lists** — for the week's work, from that one lesson's 识写字; for revision, from every 识写字 up to and including it.
+- **Pitch reading passages** — compose from the cumulative 识读字 set up to the child's lesson, so an unknown character is a deliberate choice rather than an accident.
 
-Keys are semesters (`一上` = P1 first half … `六下` = P6 second half). 基础华文 has no separate list; it is P5-P6 only, and its end-of-P6 bands (1300-1350 read, 700-750 written) are the 华文 end-of-P4 bands — so pitch FCL character work from the 华文 columns up to 四下 (1219 read, 736 written), not from the P5-P6 rows.
+Semester keys read `一上` = P1 first half … `六下` = P6 second half. 基础华文 has no separate list; it is P5-P6 only, and its end-of-P6 bands (1300-1350 read, 700-750 written) are the 华文 end-of-P4 bands — so pitch FCL character work from the 华文 columns up to 四下 (1219 read, 736 written), not from the P5-P6 rows.
 
 ---
 
