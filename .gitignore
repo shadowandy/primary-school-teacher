@@ -1,0 +1,13 @@
+# Agent runtime directories — the teacher skills live in skills/; these hold
+# symlinks into it plus vendored skills restored by `npx skills experimental_install`.
+.agents/
+.claude/
+
+# The two non-MOE PDFs: third-party works kept locally as provenance only.
+# docs/syllabus/ is tracked — it is the source every reference traces back to.
+docs/references/
+
+# Packaged skill archives.
+dist/
+
+.DS_Store
