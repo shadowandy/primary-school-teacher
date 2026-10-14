@@ -20,6 +20,17 @@ That offers all three; `--skill primary-school-math-teacher` takes one, and `--l
 repo carries without installing. The CLI symlinks into each agent directory it finds, so a skill
 installed once is visible to every runtime on the machine.
 
+Each skill is also published as its own zip on every update, for a runtime that installs from an
+archive rather than from a repo:
+
+```sh
+curl -LO https://github.com/shadowandy/primary-school-teacher/releases/latest/download/primary-school-math-teacher.zip
+```
+
+The archive unpacks to `primary-school-math-teacher/SKILL.md` and its `references/`. Those
+`latest/download/` URLs always serve the current release, and
+[Releases](https://github.com/shadowandy/primary-school-teacher/releases) keeps every earlier one.
+
 ## Layout
 
 ```

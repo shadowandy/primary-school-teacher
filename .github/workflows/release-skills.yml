@@ -1,0 +1,86 @@
+name: Release skills
+
+# Every push to main that touches a skill publishes a release carrying all three
+# skills as individual zips. A release is the whole set rather than only the
+# changed skill, so one release is always a complete, current download and the
+# /releases/latest/download/<skill>.zip URL stays valid for each.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-skills
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Name the release
+        id: name
+        run: echo "tag=v$(date -u +%Y.%m.%d)-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Record which skills changed
+        run: |
+          before='${{ github.event.before }}'
+          if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] \
+             && git cat-file -e "$before^{commit}" 2>/dev/null; then
+            git diff --name-only "$before" '${{ github.sha }}' -- skills/ |
+              cut -d/ -f2 | sort -u > changed.txt
+          else
+            # First push, a force-push, or a manual run: treat every skill as updated.
+            ls -1 skills > changed.txt
+          fi
+          sed 's/^/- `/; s/$/`/' changed.txt > changed.md
+          cat changed.md
+
+      - name: Build one zip per skill
+        run: |
+          mkdir -p dist
+          for path in skills/*/; do
+            skill=$(basename "$path")
+            test -f "$path/SKILL.md" || { echo "::error::$skill has no SKILL.md"; exit 1; }
+            # Zip from inside skills/ so the archive root holds <skill>/SKILL.md,
+            # the layout a skill-zip consumer expects.
+            (cd skills && zip -q -r -X "../dist/$skill.zip" "$skill" -x '*.DS_Store')
+            unzip -l "dist/$skill.zip" | grep -q "$skill/SKILL.md" ||
+              { echo "::error::$skill.zip has no SKILL.md at its root"; exit 1; }
+          done
+          ls -lh dist
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          TAG: ${{ steps.name.outputs.tag }}
+        run: |
+          {
+            echo 'Each skill is a standalone zip: unzip it into an agent skills directory,'
+            echo 'or upload it wherever skills are installed from an archive.'
+            echo
+            echo 'To install from source instead:'
+            echo
+            echo '```sh'
+            echo "npx skills add $REPO"
+            echo '```'
+            echo
+            echo '**Updated in this release**'
+            echo
+            cat changed.md
+            echo
+            echo "Built from $SHA."
+          } > notes.md
+          gh release create "$TAG" dist/*.zip \
+            --title "Skills $TAG" \
+            --notes-file notes.md
