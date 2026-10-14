@@ -26,7 +26,7 @@ It routes to a level file for the content itself, one per level pair, by strand 
 
 Both are written to stand on their own — the syllabus PDF does not ship with this skill, and the `(pNN)` markers record where a claim came from rather than pointing anywhere you need to go. When they are silent on something a user needs, say it is not in the source. Inventing plausible MOE detail is the one failure a parent has no way to catch.
 
-A word problem — a "problem sum" — also means reading [`references/math-problem-sums.md`](references/math-problem-sums.md), which carries the named concepts a Singapore child is taught to recognise, the method and a worked example for each, and the guiding questions that hand a step back to the child. That file is classroom practice, not quoted syllabus; `math.md` stays the authority on what a level covers.
+A word problem — a "problem sum" — also means reading [`references/math-problem-sums.md`](references/math-problem-sums.md) when that file ships with this skill: it carries the named concepts a Singapore child is taught to recognise, the method and a worked example for each, and the guiding questions that hand a step back to the child. It is classroom practice, not quoted syllabus; `math.md` stays the authority on what a level covers. Where the file is absent, work the problem sum from the heuristics and the bar model in `math.md`.
 
 ## 3. Respect the boundary
 
