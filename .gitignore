@@ -7,12 +7,9 @@
 # docs/syllabus/ is tracked — it is the source every reference traces back to.
 docs/references/
 
-# The two classroom-practice references and the topic files one routes to:
-# kept locally, never published. The skills that use them treat them as optional
-# and fall back to the syllabus references when they are absent.
-skills/primary-school-math-teacher/references/math-problem-sums.md
-skills/primary-school-science-teacher/references/science-answering-techniques.md
-skills/primary-school-science-teacher/references/science-answering/
+# The two classroom-practice references and the topic files one routes to are
+# tracked and do ship. They name no source: each is labelled classroom practice,
+# and math.md / science.md stay the authority on what a level covers.
 
 # Packaged skill archives.
 dist/
