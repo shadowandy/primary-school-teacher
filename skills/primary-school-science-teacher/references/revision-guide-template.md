@@ -2,7 +2,7 @@
 
 The house format for a revision guide or topical notes on one topic: what a child revises from and a parent can teach off.
 
-It is a **formatting convention, not MOE's** — the syllabus prescribes no notes format. `science.md` stays the authority on content, on every boundary the guide is written inside, and on the command words the answering frame is marked to; `science-answering-techniques.md` routes to the frames for the topic.
+It is a **formatting convention, not MOE's** — the syllabus prescribes no notes format. `science.md` stays the authority on content, on every boundary the guide is written inside, and on the command words the answering frame is marked to; `science-answering-techniques.md`, when it ships with this skill, routes to the frames for the topic, and where it is absent the causal chain in `science.md` does.
 
 ## How to fill it
 

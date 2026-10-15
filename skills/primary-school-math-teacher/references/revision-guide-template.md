@@ -2,7 +2,7 @@
 
 The house format for a revision guide or topical notes on one topic: what a child revises from and a parent can teach off.
 
-It is a **formatting convention, not MOE's** — the syllabus prescribes no notes format. `math.md` and the level file stay the authority on what the level covers and on the range limits the guide is written inside; `math-problem-sums.md` supplies the named concept and the method for a word-problem topic.
+It is a **formatting convention, not MOE's** — the syllabus prescribes no notes format. `math.md` and the level file stay the authority on what the level covers and on the range limits the guide is written inside; `math-problem-sums.md`, when it ships with this skill, supplies the named concept and the method for a word-problem topic, and where it is absent the heuristics and the bar model in `math.md` do.
 
 ## How to fill it
 
