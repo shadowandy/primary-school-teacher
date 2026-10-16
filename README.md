@@ -58,6 +58,13 @@ skills/
         living-things.md                  # frames: plant reproduction, photosynthesis, digestion, circulation
         environment.md                    # frames: food webs, adaptation, man's impact
         misconceptions.md                 # the 26 named misconceptions, in topic order
+      science-concepts.md                 # router: concept notes by theme, conventions
+      science-concepts/
+        diversity.md                      # notes: living things, classification, materials
+        cycles.md                         # notes: life cycles, matter, reproduction, water
+        systems.md                        # notes: body and plant systems, electrical system
+        interactions.md                   # notes: magnets, forces, environment, adaptations
+        energy.md                         # notes: light, heat, photosynthesis, energy conversion
       paper-template.md                   # house format for a practice/exam paper + marking scheme
       revision-guide-template.md          # house format for topical notes / a revision guide
   primary-school-language-teacher/
@@ -71,7 +78,7 @@ tools/
   parse_chinese_characters.py             # the two 《欢乐伙伴》 PDFs -> chinese-characters.json, checked
 docs/
   syllabus/                               # the source MOE syllabus PDFs
-  references/                             # the two non-MOE classroom-practice PDFs
+  references/                             # the non-MOE classroom-practice PDFs
 ```
 
 `skills/<name>/` is the canonical copy — the layout `npx skills add` installs from. `.claude/skills/<name>` and `.agents/skills/<name>` symlink into it, so this repo's own agents see all three while there is still one file to edit.

@@ -7,7 +7,7 @@ The **deliverable is the skills**, not an application. The three skills in `skil
 | Skill | Subjects | References |
 |---|---|---|
 | `primary-school-math-teacher` | Mathematics P1-P6, Standard and Foundation | `math.md` → `math-levels/` (4), `math-problem-sums.md`, `paper-template.md`, `revision-guide-template.md` |
-| `primary-school-science-teacher` | Science P3-P6, Standard and Foundation | `science.md`, `science-answering-techniques.md` → `science-answering/` (5), `paper-template.md`, `revision-guide-template.md` |
+| `primary-school-science-teacher` | Science P3-P6, Standard and Foundation | `science.md`, `science-answering-techniques.md` → `science-answering/` (5), `science-concepts.md` → `science-concepts/` (5), `paper-template.md`, `revision-guide-template.md` |
 | `primary-school-language-teacher` | English P1-P6 by band; Chinese 华文 / 高级华文 / 基础华文 | `english.md`, `chinese.md`, `chinese-characters.json` |
 
 Each teaches, sets practice for, marks and answers questions about its part of the Singapore MOE primary syllabus. Below, a bare `references/…` path means that file inside whichever skill the table above gives it to. Each skill's `SKILL.md` has how that skill behaves. `README.md` carries the layout and the full provenance story — which edition each reference was distilled from, how each PDF was read, how the character data was checked — so it is what answers *where did this come from*. What follows here is the rules that constrain an edit, not the history behind one.
@@ -55,27 +55,28 @@ Paraphrase loses the precision that makes a boundary usable. "The terms transpar
 
 ## Classroom practice is labelled, and its source is never named
 
-Nothing outside `docs/syllabus/` may be cited as syllabus. Two references carry classroom practice instead, each distilled from a non-MOE PDF kept locally in `docs/references/` and never committed:
+Nothing outside `docs/syllabus/` may be cited as syllabus. Three references carry classroom practice instead, each distilled from a non-MOE PDF kept locally in `docs/references/` and never committed:
 
 - `references/math-problem-sums.md` — the named concepts behind Singapore problem sums.
 - `references/science-answering-techniques.md` with the topic files it routes to in `references/science-answering/` — the frames an open-ended Science answer is marked against.
+- `references/science-concepts.md` with the theme files it routes to in `references/science-concepts/` — concept notes by theme: definitions, classifications, experiment set-ups and everyday applications, each topic level-tagged from `science.md`, with content the current syllabus lacks held under `Beyond the current syllabus`.
 
 Both are **tracked**, so a clone, an install and a release zip all carry them. What makes that safe is labelling, not absence, and it rests on four properties that any new such file must also have:
 
 1. **It opens by disowning authority.** Literally `**This is not MOE syllabus.**`, then an account of what it actually is, then `math.md` or `science.md` named as the authority on what a level covers.
 2. **It tells the agent not to quote it as MOE** — "apply it, but do not quote it as MOE". Disowning authority and forbidding attribution are two separate moves, and the second is the one that stops classroom wording reaching a parent as syllabus. The four template files make the same pair with `It is a **formatting convention, not MOE's**`.
-3. **It names no source anywhere** — no title, no publisher, no page citation, not here, not in `README.md`, not in the reference. This is why the two documents go unnamed wherever they are described.
+3. **It names no source anywhere** — no title, no publisher, no page citation, not here, not in `README.md`, not in the reference. This is why the three documents go unnamed wherever they are described.
 4. **It stands alone.** The source PDFs are not shipped, so everything needed to apply a concept or mark an answer is in the file itself. When you extend either file, the test is whether it still works for an agent that has only that file.
 
 Where such a file's phrasing crosses a boundary — *elastic potential energy* and *stomata* are both excluded — it says so explicitly rather than carrying the term unmarked. The boundary wins over the classroom wording.
 
-**The `(pNN)` marker rule runs the other way for MOE content.** A reference distilled from `docs/syllabus/` carries page markers densely — on the order of one every few lines in `science.md` and `english.md` — as provenance for anyone auditing against the source, and each `SKILL.md` tells the agent they record where a claim came from rather than pointing anywhere to follow. Keep them — Math, English and Chinese write them `(pNN)`, Science `[pNN]`, each consistent within its own files. It is the classroom-practice pair that carries none, and that asymmetry is the point.
+**The `(pNN)` marker rule runs the other way for MOE content.** A reference distilled from `docs/syllabus/` carries page markers densely — on the order of one every few lines in `science.md` and `english.md` — as provenance for anyone auditing against the source, and each `SKILL.md` tells the agent they record where a claim came from rather than pointing anywhere to follow. Keep them — Math, English and Chinese write them `(pNN)`, Science `[pNN]`, each consistent within its own files. It is the classroom-practice files that carry none, and that asymmetry is the point.
 
 Where a reference states something the PDFs do not, it is labelled in place — the Singapore maths heuristics in `references/math.md` are marked classroom practice rather than quoted syllabus, as are the CPA sequence and the bar model, which this edition of the Math syllabus never names, and the English composition marking criteria, which the 2020 EL syllabus does not contain in any form. Keep new additions to that standard: label it, or leave it out.
 
 ### Pointers to it stay conditional
 
-Six pointers reach the two classroom-practice references — in `math.md`, `science.md`, the two `SKILL.md` files and the two `revision-guide-template.md` files — and every one is written as conditional even though the files currently ship: read the file when it ships, and otherwise fall back to the syllabus reference, which each pointer names. That way pulling a file back out of version control cannot leave a skill promising content it does not have, a bug this repo has already shipped once.
+Seven pointers reach the three classroom-practice references — in `math.md`, `science.md`, the two `SKILL.md` files (the Science one twice) and the two `revision-guide-template.md` files — and every one is written as conditional even though the files currently ship: read the file when it ships, and otherwise fall back to the syllabus reference, which each pointer names. That way pulling a file back out of version control cannot leave a skill promising content it does not have, a bug this repo has already shipped once.
 
 The hedge has a fixed wording, so grep for that rather than for the filenames:
 
@@ -83,7 +84,7 @@ The hedge has a fixed wording, so grep for that rather than for the filenames:
 grep -rn "when that file ships\|when it ships" $(git ls-files skills)
 ```
 
-Grepping the filenames instead also matches the intra-cluster links — the router table in `science-answering-techniques.md`, the backlink atop each `science-answering/` topic file — and those are **unconditional by design**, because a cluster ships or does not ship as a unit. Adding hedges inside a cluster is the wrong repair. The two `paper-template.md` files name only `math.md` / `science.md` and are correctly not pointers either; leave them alone.
+Grepping the filenames instead also matches the intra-cluster links — the router tables in `science-answering-techniques.md` and `science-concepts.md`, the backlink atop each topic or theme file — and those are **unconditional by design**, because a cluster ships or does not ship as a unit. Adding hedges inside a cluster is the wrong repair. The two `paper-template.md` files name only `math.md` / `science.md` and are correctly not pointers either; leave them alone.
 
 ## Character data has invariants
 
