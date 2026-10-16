@@ -11,6 +11,7 @@ It is a **formatting convention, not MOE's** — the syllabus prescribes no note
 - **Vocabulary table**: the term as the syllabus words it, a plain-language meaning inside the boundary, and the specific thing children confuse it with — `factor` against `multiple`, "of" as multiplication, a remainder against a decimal answer.
 - **Concrete before abstract** in the breakdown, and name the bar-model shape the topic uses — part-whole or comparison.
 - **One worked example**, routine or two-step, solved in the taught method with the unit value stated, never with algebra.
+- **Every table fits an A4 page with 2.54 cm margins** — a text width of **15.92 cm** (6.27 in). At 11-12 pt a column narrower than about 2.5 cm cannot hold an ordinary word, so six columns is the ceiling and four is comfortable; a table that needs more is two tables. Keep anything unbreakable out of cells — answer lines of underscores, long numbers or equations, URLs — and put answer space below the table instead. Rendered to Word or PDF, set the table to exactly that width, with column widths summing to 15.92 cm and the widest column given to the one carrying prose.
 - **Teacher diagnosis last**: the pitfall this topic produces, named as a misconception rather than as carelessness.
 
 ## The template

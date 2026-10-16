@@ -12,6 +12,7 @@ It is a **formatting convention, not MOE's**: the syllabus specifies no paper st
 - **Open-ended parts get real writing space** — 4-6 blank lines, and more where the answer is a full chain.
 - **Use the question's own command word** from the glossary in `science.md`, and set up the data a comparative answer needs: two set-ups, a table of readings, a labelled diagram.
 - **Singapore units and contexts throughout** — °C, g, kg, mℓ, ℓ, cm, familiar plants, animals and household set-ups.
+- **Every table fits an A4 page with 2.54 cm margins** — a text width of **15.92 cm** (6.27 in). At 11-12 pt a column narrower than about 2.5 cm cannot hold an ordinary word, so six columns is the ceiling and four is comfortable; a table that needs more is two tables. Keep anything unbreakable out of cells — answer lines of underscores, long numbers or equations, URLs — and put answer space below the table instead. Rendered to Word or PDF, set the table to exactly that width, with column widths summing to 15.92 cm and the widest column given to the one carrying prose.
 - **Answer key last**, as Part 3, always — never beside the question.
 
 ## The template

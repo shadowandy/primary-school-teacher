@@ -11,6 +11,7 @@ It is a **formatting convention, not MOE's** — the syllabus prescribes no note
 - **Vocabulary table**: the term as the syllabus words it, a plain-language meaning inside the boundary, and the specific thing children confuse it with — melting against dissolving, a food web's arrow direction, cold as a substance that flows in.
 - **Concrete before abstract** in the breakdown, and prefer the representation the child is taught in: a labelled diagram, the two set-ups being compared, a classification rule.
 - **One worked example** with real data, answered in the full chain rather than the final claim, honouring the command word the question used.
+- **Every table fits an A4 page with 2.54 cm margins** — a text width of **15.92 cm** (6.27 in). At 11-12 pt a column narrower than about 2.5 cm cannot hold an ordinary word, so six columns is the ceiling and four is comfortable; a table that needs more is two tables. Keep anything unbreakable out of cells — answer lines of underscores, long numbers or equations, URLs — and put answer space below the table instead. Rendered to Word or PDF, set the table to exactly that width, with column widths summing to 15.92 cm and the widest column given to the one carrying prose.
 - **Teacher diagnosis last**: name the misconception from the misconception file rather than calling the answer careless, and say which link was missing.
 
 ## The template

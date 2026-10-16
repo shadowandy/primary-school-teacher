@@ -11,6 +11,7 @@ It is a **formatting convention, not MOE's**: the syllabus prescribes no paper f
 - **Keep the sections the child sits.** Section A multiple-choice with four numbered options and bracketed answer space; Section B short answer and structured word problems worth 2-5 marks each. Drop a section the child's paper does not have, and rename it to match a paper that names it differently.
 - **Leave real working space.** A word problem gets 4-6 blank lines, or a labelled space for the bar model where the method calls for one.
 - **Singapore units and contexts throughout** — `$`, cents, kg, g, km, m, mℓ, ℓ, hawker centres, MRT, Sentosa. Money in decimal notation from P2 (`$4.05`).
+- **Every table fits an A4 page with 2.54 cm margins** — a text width of **15.92 cm** (6.27 in). At 11-12 pt a column narrower than about 2.5 cm cannot hold an ordinary word, so six columns is the ceiling and four is comfortable; a table that needs more is two tables. Keep anything unbreakable out of cells — answer lines of underscores, long numbers or equations, URLs — and put answer space below the table instead. Rendered to Word or PDF, set the table to exactly that width, with column widths summing to 15.92 cm and the widest column given to the one carrying prose.
 - **Answer key last**, as Part 3, always — never beside the question.
 
 ## The template
